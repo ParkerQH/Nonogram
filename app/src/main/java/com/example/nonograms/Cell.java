@@ -6,7 +6,6 @@ import android.widget.TableRow;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
 
-import java.util.Collection;
 import java.util.Random;
 
 public class Cell extends AppCompatButton {
@@ -63,7 +62,7 @@ public class Cell extends AppCompatButton {
     public boolean toggleX() {
         checked = !checked;
         if (checked) {
-            setBackgroundResource(R.drawable.red_clear); // X 표시용 shape 사용
+            setBackgroundResource(R.drawable.x_icon); // X 표시용 shape 사용
         } else {
             setBackgroundResource(R.drawable.cell_selector); // 기본 상태로 복귀
         }

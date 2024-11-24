@@ -201,8 +201,8 @@ public class MainActivity extends AppCompatActivity {
         disableAllCells();
 
         String message = isWin ?
-                "Win!\nCongratulation!!!" :
-                "Game OVER~" + '\n' + remaining + " left...";
+                "You Win!! 😉" :
+                "You Lose 😭" + "\n남은 갯수 : " + remaining;
 
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
         lifeTextView.setText(message);
@@ -215,5 +215,4 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
 }
