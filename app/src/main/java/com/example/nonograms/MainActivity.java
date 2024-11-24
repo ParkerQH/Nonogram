@@ -251,8 +251,8 @@ public class MainActivity extends AppCompatActivity {
         result = true;
         deactivateAllCells();  // 모든 셀 비활성화
 
-        String message = hasWon ? "You Win!! 😉" : "GAME OVER \nYou Lose 😭" + "\n못 찾은 개수 : " + remain + "개";
-        String toastMessage = hasWon ? "You Win!! 😉" : "You Lose 😭";
+        String message = hasWon ? "You Win!!" : "GAME OVER \nYou Lose" + "\n못 찾은 개수 : " + remain + "개";
+        String toastMessage = hasWon ? "You Win!!" : "You Lose";
         lifeTextView.setText(message);  // 게임 결과 텍스트로 표시
         Toast.makeText(this, toastMessage, Toast.LENGTH_LONG).show();  // 게임 결과 메시지 표시
     }
