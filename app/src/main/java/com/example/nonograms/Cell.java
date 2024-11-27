@@ -20,15 +20,12 @@ public class Cell extends AppCompatButton {
         TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(150, 150);
         layoutParams.setMargins(0, 0, 0, 0);
         setLayoutParams(layoutParams);
-
-        // 배경 리소스 설정: cell_selector는 기본 배경 모양
-        setBackgroundResource(R.drawable.cell_selector);
+        setBackgroundResource(R.drawable.cell_selector);    // cell_selector는 기본 배경 모양
 
         // blackSquare가 될 확률을 랜덤으로 결정
-        this.blackSquare = random.nextBoolean();  // 랜덤하게 true/false 결정
-        if (blackSquare) {
+        this.blackSquare = random.nextBoolean();    // 랜덤하게 true/false
+        if (blackSquare)
             numBlackSquares++;  // blackSquare가 생성되면 전체 검은 사각형 수 증가
-        }
     }
 
     // 해당 셀이 blackSquare인지 확인하는 메서드
@@ -48,15 +45,14 @@ public class Cell extends AppCompatButton {
 
     // blackSquare를 마킹하는 메서드 (게임에서 성공적인 클릭 처리)
     public boolean markBlackSquare() {
-        if (checked) {
-            return true;  // X 표시가 이미 되어 있으면 아무 동작도 하지 않음
-        }
+        if (checked)
+            return true;  // X 표시가 이미 되어 있으면 동작하지 않음
 
         if (blackSquare) {
             // blackSquare이면 배경색을 검정으로 변경하고 클릭할 수 없게 비활성화
             setBackgroundColor(Color.BLACK);
             setEnabled(false);  // 클릭 비활성화
-            numBlackSquares--;  // blackSquare 수 1 감소
+            numBlackSquares--;  // 남은 blackSquare 수 -1
             return true;  // 성공적으로 마킹
         } else {
             return false;  // blackSquare가 아니면 실패
