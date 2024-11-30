@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Nonograms</string>
+    <string name="black_square">BLACK SQUARE</string>
+    <string name="x_cross">X CROSS</string>
 </resources>
