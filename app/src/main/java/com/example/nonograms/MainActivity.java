@@ -179,13 +179,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (Cell.getNumBlackSquares() == 0) {
-            endGame(true, 0);
+            endGame(true);
         }
     }
 
     private void decreaseLife() {
         if (--life <= 0) {
-            endGame(false, Cell.getNumBlackSquares());
+            endGame(false);
         } else {
             updateLifeDisplay();
         }
@@ -195,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
         RemainedLife.setText("Life: " + life);
     }
 
-    private void endGame(boolean victory, int remaining) {
+    private void endGame(boolean win) {
         String message;
         gameFinished = true;
 
@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        if (victory) {
+        if (win) {
             message = "GAME CLEAR";
         } else {
             message = "GAME OVER";

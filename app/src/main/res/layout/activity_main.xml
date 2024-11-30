@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- TableLayout 배치 -->
     <TableLayout
         android:id="@+id/nonogramTable"
         android:layout_width="wrap_content"
@@ -45,6 +44,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.83" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
