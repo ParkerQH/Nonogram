@@ -61,13 +61,13 @@ public class Cell extends AppCompatButton {
 
     // X 표시를 토글하는 메서드 (X를 표시하거나 표시를 제거)
     public boolean toggleX() {
-        checked = !checked;  // X 표시 상태를 반전
+        checked = !checked;
 
         if (checked) {
-            // X 표시가 켜지면 X 아이콘을 배경으로 설정
+            // X CROSS 표시가 켜지면 X 아이콘 배경
             setBackgroundResource(R.drawable.x_icon);
         } else {
-            // X 표시가 꺼지면 기본 셀 배경으로 복귀
+            // BLACK SQUARE 표시가 켜지면 기본 셀 배경
             setBackgroundResource(R.drawable.cell_selector);
         }
         return checked;  // X 표시 상태 반환

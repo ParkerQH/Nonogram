@@ -34,9 +34,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main); // 레이아웃 설정
 
         // 레이아웃과 텍스트뷰 초기화
-        TableLayout gameTable = findViewById(R.id.nonogramTable);
+        TableLayout gameTable = findViewById(R.id.gameTable);
         TableRow.LayoutParams cellLayoutParams = new TableRow.LayoutParams(125, 125);
-        RemainedLife = findViewById(R.id.textLife);
+        RemainedLife = findViewById(R.id.remainedLife);
         updateLifeDisplay();
 
         initColumnHeaders(gameTable, cellLayoutParams); // 세로 칸 카운트 초기화
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         computeColumnCounts(); // 세로줄 검은 칸 계산
         computeRowCounts();    // 가로줄 검은 칸 계산
 
-        checkModeToggle = findViewById(R.id.toggleCheckButton);
+        checkModeToggle = findViewById(R.id.modeChangeButton);
         checkModeToggle.setBackgroundResource(R.drawable.cell_selector); // 토글 버튼 스타일 설정
     }
 
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
             TableRow headerRow = new TableRow(this);
             table.addView(headerRow);
 
-            // 왼쪽 여백 텍스트뷰 추가
+            // 빈 공간 생성
             for (int j = 0; j < 3; j++) {
                 TextView placeholder = new TextView(this);
                 placeholder.setLayoutParams(params);
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             for (int j = 0; j < 5; j++) {
                 Cell cell = new Cell(this);
                 cell.setLayoutParams(params);
-                cell.setOnClickListener(v -> handleCellClick((Cell) v));
+                cell.setOnClickListener(v -> onCellClick((Cell) v));
                 buttons[i][j] = cell;
                 gameRow.addView(cell);
             }
@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void handleCellClick(Cell cell) {
+    private void onCellClick(Cell cell) {
         if (gameFinished) {
             return;
         }
@@ -172,20 +172,19 @@ public class MainActivity extends AppCompatActivity {
         if (checkModeToggle.isChecked()) {
             cell.toggleX();
         } else {
-            boolean success = cell.markBlackSquare();
-            if (!success && !cell.isChecked()) {
-                decreaseLife();
+            if (!cell.markBlackSquare() && !cell.isChecked()) {
+                loseLife();
             }
         }
 
         if (Cell.getNumBlackSquares() == 0) {
-            endGame(true);
+            gameResult(true);
         }
     }
 
-    private void decreaseLife() {
+    private void loseLife() {
         if (--life <= 0) {
-            endGame(false);
+            gameResult(false);
         } else {
             updateLifeDisplay();
         }
@@ -195,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
         RemainedLife.setText("Life: " + life);
     }
 
-    private void endGame(boolean win) {
+    private void gameResult(boolean win) {
         String message;
         gameFinished = true;
 

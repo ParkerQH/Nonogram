@@ -8,22 +8,22 @@
     tools:context=".MainActivity">
 
     <TableLayout
-        android:id="@+id/nonogramTable"
+        android:id="@+id/gameTable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/toggleCheckButton"
+        app:layout_constraintBottom_toTopOf="@+id/modeChangeButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.128"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textLife"
+        app:layout_constraintTop_toBottomOf="@+id/remainedLife"
         app:layout_constraintVertical_bias="0.23" />
 
     <TextView
-        android:id="@+id/textLife"
+        android:id="@+id/remainedLife"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/toggleCheckButton"
+        app:layout_constraintBottom_toTopOf="@+id/modeChangeButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +31,7 @@
         app:layout_constraintVertical_bias="0.176" />
 
     <ToggleButton
-        android:id="@+id/toggleCheckButton"
+        android:id="@+id/modeChangeButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
